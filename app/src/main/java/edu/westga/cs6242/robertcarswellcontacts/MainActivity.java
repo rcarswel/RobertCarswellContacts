@@ -8,8 +8,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private String name;
+    private String email;
+    private String phone;
+    private String phoneType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        this.name = "";
+        this.email = "";
+        this.phone = "";
+        this.phoneType = "Cell";
+        this.setResults();
     }
 
     @Override
@@ -48,5 +62,40 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void saveOnClick(View v) {
+        // do something when the button is clicked
+        this.setResults();
+    }
+
+
+
+    private void setResults() {
+        this.name = ((EditText)findViewById(R.id.nameEditText)).getText().toString();
+        this.email = ((EditText)findViewById(R.id.emailEditText)).getText().toString();
+        this.phone = ((EditText)findViewById(R.id.phoneEditText)).getText().toString();
+        this.phoneType = getPhoneType();
+
+
+        TextView resultsTextView = (TextView) findViewById(R.id.resultTextView);
+        resultsTextView.setText("Name: " + this.name + "\n"
+                + "eMail: " + this.email + "\n"
+                + this.phoneType + ": " + this.phone);
+    }
+
+    private String getPhoneType() {
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioPhone);
+        RadioButton land = (RadioButton) findViewById(R.id.landlineRadio);
+        RadioButton cell = (RadioButton) findViewById(R.id.cellRadio);
+
+        int selectedID = radioGroup.getCheckedRadioButtonId();
+        if (selectedID == land.getId()) {
+            return "Landline";
+        } else if (selectedID == cell.getId()) {
+            return "Cell";
+        } else {
+            return "Error";
+        }
     }
 }

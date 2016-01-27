@@ -36,7 +36,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Name"
             android:ems="10"
             android:id="@+id/nameEditText"
             android:layout_toRightOf="@+id/nameTextVeiw"
@@ -65,8 +64,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:text="eMail"
             android:ems="10"
+            android:id="@+id/emailEditText"
             android:layout_toRightOf="@+id/emailTextView"
             android:layout_alignBaseline="@+id/emailTextView"
             android:textAlignment="center"
@@ -93,34 +92,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="phone"
-            android:text="phone"
             android:ems="10"
+            android:id="@+id/phoneEditText"
             android:layout_toRightOf="@+id/phoneTextView"
             android:layout_alignBaseline="@+id/phoneTextView"
             android:textAlignment="center"
             android:layout_weight="2"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
+    <RadioGroup
+        android:id="@+id/radioPhone"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_gravity="center_horizontal">
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/landline"
-            android:id="@+id/landlineRadioButton"
+            android:id="@+id/landlineRadio"
             android:layout_weight="1" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cell"
-            android:id="@+id/cellRadioButton"
-            android:layout_weight="1"/>
-    </LinearLayout>
+            android:id="@+id/cellRadio"
+            android:layout_weight="1"
+            android:checked="true"/>
+    </RadioGroup>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -134,7 +135,8 @@
             android:layout_height="wrap_content"
             android:text="@string/save"
             android:id="@+id/saveButton"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:onClick="saveOnClick" />
     </LinearLayout>
 
     <LinearLayout
@@ -150,8 +152,9 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/results"
-            android:id="@+id/resultTestView"
-            android:layout_gravity="center_horizontal" />
+            android:id="@+id/resultTextView"
+            android:layout_gravity="center_horizontal"
+            android:enabled="false" />
         </LinearLayout>
 </LinearLayout>
 
