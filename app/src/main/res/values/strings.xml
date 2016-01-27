@@ -3,4 +3,6 @@
     <string name="action_settings">Settings</string>
     <string name="landline">Landline</string>
     <string name="cell">Cell</string>
+    <string name="results">Result</string>
+    <string name="save">Save</string>
 </resources>

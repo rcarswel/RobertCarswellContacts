@@ -42,14 +42,7 @@
             android:layout_toRightOf="@+id/nameTextVeiw"
             android:layout_alignBaseline="@+id/nameTextVeiw"
             android:textAlignment="center"
-            android:layout_weight="2" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+            android:layout_weight="1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -57,8 +50,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="eMail:"
             android:id="@+id/emailTextView"
-            android:layout_below="@+id/nameTextVeiw"
-            android:layout_alignParentLeft="true"
+            android:layout_toRightOf="@+id/nameEditText"
+            android:layout_alignBaseline="@+id/nameEditText"
             android:layout_weight="1" />
 
         <EditText
@@ -71,6 +64,7 @@
             android:layout_alignBaseline="@+id/emailTextView"
             android:textAlignment="center"
             android:layout_weight="2" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -85,7 +79,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Phone #:"
             android:id="@+id/phoneTextView"
-            android:layout_below="@+id/emailTextView"
+            android:layout_below="@+id/nameTextView"
             android:layout_alignParentLeft="true"
             android:layout_weight="1" />
 
@@ -99,13 +93,6 @@
             android:layout_alignBaseline="@+id/phoneTextView"
             android:textAlignment="center"
             android:layout_weight="2"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
 
         <RadioButton
             android:layout_width="wrap_content"
