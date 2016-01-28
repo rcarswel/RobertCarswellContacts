@@ -5,14 +5,13 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private String name;
@@ -79,21 +78,19 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView resultsTextView = (TextView) findViewById(R.id.resultTextView);
-        resultsTextView.setText("Name: " + this.name + "\n"
-                + "eMail: " + this.email + "\n"
-                + this.phoneType + ": " + this.phone);
+        resultsTextView.setText(String.format("Name: %s\neMail: %s\n%s: %s", this.name, this.email, this.phoneType, this.phone));
     }
 
     private String getPhoneType() {
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioPhone);
-        RadioButton land = (RadioButton) findViewById(R.id.landlineRadio);
+        RadioButton land = (RadioButton) findViewById(R.id.landLineRadio);
         RadioButton cell = (RadioButton) findViewById(R.id.cellRadio);
 
         int selectedID = radioGroup.getCheckedRadioButtonId();
         if (selectedID == land.getId()) {
-            return "Landline";
+            return "Land Line";
         } else if (selectedID == cell.getId()) {
-            return "Cell";
+            return "Cell Phone";
         } else {
             return "Error";
         }
